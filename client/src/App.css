@@ -1,0 +1,81 @@
+
+.overlay{
+  opacity:0.8;
+  background-image: url('https://i.postimg.cc/7PRHmXfx/Visualize-logo.png');
+  background-color: whitesmoke;
+  background-repeat: no-repeat;
+  background-position: center ;
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  
+  z-index:1000;
+}
+
+.nav {
+  flex-wrap: none;
+  background-color: whitesmoke;
+  align-items: right;
+  text-align: right;
+  justify-content: right;
+  padding-right: 2%;
+  font-size: 50%;
+}
+
+.navImage {
+  width: 7%;
+  height: auto;
+  margin-right: 85%; 
+}
+
+
+#login {
+  
+  width: 100vw;
+    height: 100vh;
+  position: relative;
+  
+}
+.vertical-center {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.btn.btn-primary {
+  background-color: rgba(95, 95, 95, 0);
+  border-width: 0em;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  border-radius: 0%;
+  font-style: italic;
+  font-size: 275%;
+  text-align: right;
+  
+}
+.btn.btn-primary:hover{
+  background-color: rgba(95, 95, 95, 0);
+  color: rgba(95, 95, 95, 0.953);
+}
+.btn.btn-primary:active{
+  background-color: rgba(95, 95, 95, 0.87);
+}
+.modal-content{
+  background-color: rgba(95, 95, 95, 0.686);
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 0%;
+}
+.project-form-page {
+  background-color: whitesmoke;
+  font-family: 'Times New Roman', Times, serif;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+input#input {
+  border-color: whitesmoke;
+}
+#colorgenerator {
+  display: inline-flex;
+}

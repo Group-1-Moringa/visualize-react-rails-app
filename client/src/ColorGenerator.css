@@ -1,0 +1,19 @@
+
+.color {
+    width:500px;
+    height: 180px;
+    margin: 0.25em;
+    display:block;
+}
+
+#color2 {
+    background-color: #742a2a
+
+}
+#color3 {
+    background-color: rgb(var(--color-2three),var(--color-2two),var(--color-2one))
+}
+#color4 {
+    background-color: rgb(var(--color-3three),var(--color-3one),var(--color-3two))
+}
+/* var(--color-two) */
