@@ -465,3 +465,1402 @@ Filter chain halted as :authorized rendered or redirected
 Completed 401 Unauthorized in 22ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 380)
 
 
+Started GET "/hello" for ::1 at 2023-07-09 22:22:10 +0300
+Processing by ApplicationController#hello_world as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.8ms | Allocations: 247)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-07-09 22:43:20 +0300
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"phoebe", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>"anavrinirvanapes@gmail.com"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "anavrinirvanapes@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "phoebe"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (12.5ms)
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:43:22 +0300
+Completed 422 Unprocessable Entity in 2443ms (Views: 16.0ms | ActiveRecord: 2.2ms | Allocations: 7397)
+
+
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"phoebe", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "phoebe"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+Completed 401 Unauthorized in 13ms (Views: 2.8ms | ActiveRecord: 0.9ms | Allocations: 662)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:43:23 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 341)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:43:29 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 11ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:43:36 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 327)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:43:55 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 337)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:44:12 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"rupertho_jr", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (16.97ms)
+Completed 201 Created in 497ms (Views: 17.8ms | ActiveRecord: 0.7ms | Allocations: 901)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:44:13 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.09ms)
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.5ms | Allocations: 1641)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 22:53:02 +0300
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (Allocations: 209)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 22:53:02 +0300
+Processing by SessionsController#destroy as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 1.2ms | Allocations: 393)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-07-09 22:53:22 +0300
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"ruperth199", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>"brotherupert@gmail.com"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "brotherupert@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ruperth199"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 422 Unprocessable Entity in 608ms (Views: 2.9ms | ActiveRecord: 1.1ms | Allocations: 4474)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:53:24 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"ruperth199", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ruperth199"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.39ms)
+Completed 401 Unauthorized in 11ms (Views: 3.1ms | ActiveRecord: 1.0ms | Allocations: 664)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:53:25 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 344)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:53:33 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 19ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 329)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:53:48 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 331)
+
+
+Started GET "/hello" for ::1 at 2023-07-09 22:54:02 +0300
+Processing by ApplicationController#hello_world as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 247)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:54:11 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"ruperth199", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ruperth199"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 401 Unauthorized in 11ms (Views: 6.7ms | ActiveRecord: 0.5ms | Allocations: 632)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:54:15 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"ruperth199", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ruperth199"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 401 Unauthorized in 4ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 632)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:54:15 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"ruperth199", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ruperth199"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 401 Unauthorized in 18ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 632)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:54:25 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"ruperth199", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ruperth199"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 401 Unauthorized in 7ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 632)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-07-09 22:54:28 +0300
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:54:28 +0300
+Started POST "/signup" for 127.0.0.1 at 2023-07-09 22:54:28 +0300
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>""}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+Processing by SessionsController#create as */*
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>""}
+  Parameters: {"username"=>"", "password"=>"[FILTERED]"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 422 Unprocessable Entity in 455ms (Views: 229.1ms | ActiveRecord: 1.4ms | Allocations: 6327)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+  ↳ app/controllers/users_controller.rb:10:in `create'
+Completed 401 Unauthorized in 347ms (Views: 6.4ms | ActiveRecord: 46.5ms | Allocations: 3756)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 422 Unprocessable Entity in 368ms (Views: 0.8ms | ActiveRecord: 4.4ms | Allocations: 7529)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:54:29 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.62ms)
+Completed 401 Unauthorized in 13ms (Views: 6.2ms | ActiveRecord: 0.3ms | Allocations: 662)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:54:29 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"ruperth199", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ruperth199"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 401 Unauthorized in 6ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 632)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:54:29 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 332)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:54:38 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 341)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:54:41 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 339)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:54:46 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 329)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:54:48 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:55:18 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 339)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:56:08 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 335)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:56:09 +0300
+Processing by ProjectsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 349)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:56:19 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"ruperth199", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ruperth199"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 401 Unauthorized in 12ms (Views: 6.5ms | ActiveRecord: 0.3ms | Allocations: 632)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-07-09 22:56:42 +0300
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"rupertho_jr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "email"=>"brotherupert@gmail.com"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "brotherupert@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 480ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 4820)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 22:56:44 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"rupertho_jr", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 201 Created in 462ms (Views: 1.0ms | ActiveRecord: 0.7ms | Allocations: 897)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 22:56:45 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 8ms (Views: 3.7ms | ActiveRecord: 0.5ms | Allocations: 1647)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 23:00:23 +0300
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 214)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 23:00:24 +0300
+Processing by SessionsController#destroy as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 384)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 23:00:27 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"rupertho_jr", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 201 Created in 422ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 903)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:00:27 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 14ms (Views: 5.7ms | ActiveRecord: 2.9ms | Allocations: 1574)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 23:17:10 +0300
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (Allocations: 207)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 23:17:15 +0300
+Processing by SessionsController#destroy as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 1.9ms | Allocations: 377)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 23:17:31 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"rupertho_jr", "password"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 201 Created in 500ms (Views: 1.3ms | ActiveRecord: 0.9ms | Allocations: 1373)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:17:31 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.16ms)
+Completed 200 OK in 15ms (Views: 7.8ms | ActiveRecord: 0.6ms | Allocations: 1645)
+
+
+Started POST "/projects" for 127.0.0.1 at 2023-07-09 23:18:03 +0300
+Processing by ProjectsController#create as */*
+  Parameters: {"name"=>"Nathaniel Rubil", "description"=>"Broad", "thumbnail"=>"8", "red"=>35, "green"=>172, "blue"=>190}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (3.4ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "thumbnail", "red", "green", "blue", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Nathaniel Rubil"], ["description", "Broad"], ["thumbnail", "8"], ["red", 35], ["green", 172], ["blue", 190], ["created_at", "2023-07-09 20:18:03.231755"], ["updated_at", "2023-07-09 20:18:03.231755"]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (165.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 90]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mImage Load (2.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "90"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mUserProject Load (0.8ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 90]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (111.2ms)
+Completed 201 Created in 292ms (Views: 108.2ms | ActiveRecord: 172.6ms | Allocations: 5229)
+
+
+Started POST "/user_projects" for 127.0.0.1 at 2023-07-09 23:18:03 +0300
+Processing by UserProjectsController#create as */*
+  Parameters: {"project_id"=>90, "username"=>"rupertho_jr"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 90], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mUserProject Create (0.5ms)[0m  [1m[32mINSERT INTO "user_projects" ("user_id", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 60], ["project_id", 90], ["created_at", "2023-07-09 20:18:03.597359"], ["updated_at", "2023-07-09 20:18:03.597359"]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (53.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered UserProjectSerializer with ActiveModelSerializers::Adapter::Attributes (2.36ms)
+Completed 201 Created in 86ms (Views: 3.2ms | ActiveRecord: 55.2ms | Allocations: 3624)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:18:04 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 90]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "90"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 90]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.12ms)
+Completed 200 OK in 53ms (Views: 43.0ms | ActiveRecord: 1.6ms | Allocations: 4963)
+
+
+Started GET "/8" for 127.0.0.1 at 2023-07-09 23:18:05 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/8"):
+  
+Started GET "/projects/90" for 127.0.0.1 at 2023-07-09 23:18:10 +0300
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"90"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 90], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 90]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "90"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mUserProject Load (0.7ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 90]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (22.78ms)
+Completed 200 OK in 28ms (Views: 22.7ms | ActiveRecord: 1.3ms | Allocations: 3930)
+
+
+Started DELETE "/projects/90" for 127.0.0.1 at 2023-07-09 23:18:16 +0300
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"90"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 90], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 90]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mUserProject Destroy (0.4ms)[0m  [1m[31mDELETE FROM "user_projects" WHERE "user_projects"."id" = ?[0m  [["id", 123]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 90]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (56.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+Completed 204 No Content in 91ms (ActiveRecord: 57.9ms | Allocations: 3297)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:18:16 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 24ms (Views: 4.9ms | ActiveRecord: 0.6ms | Allocations: 1573)
+
+
+Started GET "/hello" for ::1 at 2023-07-09 23:20:30 +0300
+Processing by ApplicationController#hello_world as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 247)
+
+
+Started GET "/hello" for ::1 at 2023-07-09 23:20:32 +0300
+Processing by ApplicationController#hello_world as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 247)
+
+
+Started POST "/projects" for 127.0.0.1 at 2023-07-09 23:21:18 +0300
+Processing by ProjectsController#create as */*
+  Parameters: {"name"=>"School", "description"=>"Pictures", "thumbnail"=>"6", "red"=>60, "green"=>52, "blue"=>52}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (2.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "thumbnail", "red", "green", "blue", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "School"], ["description", "Pictures"], ["thumbnail", "6"], ["red", 60], ["green", 52], ["blue", 52], ["created_at", "2023-07-09 20:21:18.183386"], ["updated_at", "2023-07-09 20:21:18.183386"]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (94.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 91]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "91"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 91]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (54.42ms)
+Completed 201 Created in 164ms (Views: 54.8ms | ActiveRecord: 97.9ms | Allocations: 5134)
+
+
+Started POST "/user_projects" for 127.0.0.1 at 2023-07-09 23:21:18 +0300
+Processing by UserProjectsController#create as */*
+  Parameters: {"project_id"=>91}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 91], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 422 Unprocessable Entity in 53ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 3734)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:21:19 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 35ms (Views: 12.2ms | ActiveRecord: 0.6ms | Allocations: 1569)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:21:28 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 12ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 1577)
+
+
+Started POST "/projects" for 127.0.0.1 at 2023-07-09 23:21:42 +0300
+Processing by ProjectsController#create as */*
+  Parameters: {"name"=>"Nathaniel Rubil", "description"=>"gggg", "thumbnail"=>"2", "red"=>85, "green"=>32, "blue"=>32}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "thumbnail", "red", "green", "blue", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Nathaniel Rubil"], ["description", "gggg"], ["thumbnail", "2"], ["red", 85], ["green", 32], ["blue", 32], ["created_at", "2023-07-09 20:21:42.101917"], ["updated_at", "2023-07-09 20:21:42.101917"]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (163.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 92]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "92"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 92]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (18.44ms)
+Completed 201 Created in 203ms (Views: 18.7ms | ActiveRecord: 164.8ms | Allocations: 5130)
+
+
+Started POST "/user_projects" for 127.0.0.1 at 2023-07-09 23:21:42 +0300
+Processing by UserProjectsController#create as */*
+  Parameters: {"project_id"=>92}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 422 Unprocessable Entity in 20ms (Views: 1.6ms | ActiveRecord: 0.6ms | Allocations: 3579)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:21:43 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 34ms (Views: 17.0ms | ActiveRecord: 0.4ms | Allocations: 1567)
+
+
+Started POST "/projects" for 127.0.0.1 at 2023-07-09 23:21:47 +0300
+Processing by ProjectsController#create as */*
+  Parameters: {"name"=>"", "description"=>"", "thumbnail"=>"", "red"=>"", "green"=>"", "blue"=>""}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 422 Unprocessable Entity in 107ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 3250)
+
+
+Started POST "/user_projects" for 127.0.0.1 at 2023-07-09 23:21:47 +0300
+Processing by UserProjectsController#create as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 422 Unprocessable Entity in 37ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 2706)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:21:47 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 23ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 1575)
+
+
+Started POST "/projects" for 127.0.0.1 at 2023-07-09 23:21:48 +0300
+Processing by ProjectsController#create as */*
+  Parameters: {"name"=>"", "description"=>"", "thumbnail"=>"", "red"=>"", "green"=>"", "blue"=>""}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 422 Unprocessable Entity in 13ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 3113)
+
+
+Started POST "/user_projects" for 127.0.0.1 at 2023-07-09 23:21:48 +0300
+Processing by UserProjectsController#create as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 422 Unprocessable Entity in 12ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 2662)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:21:49 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 23ms (Views: 14.5ms | ActiveRecord: 0.5ms | Allocations: 1577)
+
+
+Started GET "/hello" for ::1 at 2023-07-09 23:21:52 +0300
+Processing by ApplicationController#hello_world as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 247)
+
+
+Started GET "/hello" for 127.0.0.1 at 2023-07-09 23:22:51 +0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ApplicationController#hello_world as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 12ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 1199)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 23:22:58 +0300
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 29ms (ActiveRecord: 0.0ms | Allocations: 2519)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 23:23:01 +0300
+Processing by SessionsController#destroy as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 487)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 23:23:04 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"rupertho_jr", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.78ms)
+Completed 201 Created in 515ms (Views: 28.1ms | ActiveRecord: 8.5ms | Allocations: 9540)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:23:05 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 51ms (Views: 9.4ms | ActiveRecord: 1.5ms | Allocations: 10192)
+
+
+Started POST "/projects" for 127.0.0.1 at 2023-07-09 23:23:49 +0300
+Processing by ProjectsController#create as */*
+  Parameters: {"name"=>"tigers", "description"=>"good", "thumbnail"=>"9", "red"=>136, "green"=>37, "blue"=>37}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "thumbnail", "red", "green", "blue", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "tigers"], ["description", "good"], ["thumbnail", "9"], ["red", 136], ["green", 37], ["blue", 37], ["created_at", "2023-07-09 20:23:49.636942"], ["updated_at", "2023-07-09 20:23:49.636942"]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (121.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 93]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "93"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mUserProject Load (0.4ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 93]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (94.07ms)
+Completed 201 Created in 272ms (Views: 113.5ms | ActiveRecord: 124.0ms | Allocations: 14319)
+
+
+Started POST "/user_projects" for 127.0.0.1 at 2023-07-09 23:23:49 +0300
+Processing by UserProjectsController#create as */*
+  Parameters: {"project_id"=>93, "username"=>"rupertho_jr"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mUserProject Create (0.3ms)[0m  [1m[32mINSERT INTO "user_projects" ("user_id", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 60], ["project_id", 93], ["created_at", "2023-07-09 20:23:50.019441"], ["updated_at", "2023-07-09 20:23:50.019441"]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (46.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered UserProjectSerializer with ActiveModelSerializers::Adapter::Attributes (2.73ms)
+Completed 201 Created in 77ms (Views: 6.2ms | ActiveRecord: 48.9ms | Allocations: 7728)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:23:51 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 93]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mImage Load (0.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "93"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 93]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (53.37ms)
+Completed 200 OK in 71ms (Views: 65.1ms | ActiveRecord: 1.7ms | Allocations: 5314)
+
+
+Started GET "/9" for 127.0.0.1 at 2023-07-09 23:23:51 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/9"):
+  
+Started GET "/projects/93" for 127.0.0.1 at 2023-07-09 23:23:56 +0300
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"93"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 93]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "93"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 93]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (21.25ms)
+Completed 200 OK in 27ms (Views: 21.4ms | ActiveRecord: 0.8ms | Allocations: 4336)
+
+
+Started DELETE "/projects/93" for 127.0.0.1 at 2023-07-09 23:24:04 +0300
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"93"}
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mUserProject Load (0.3ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 93]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mUserProject Destroy (2.6ms)[0m  [1m[31mDELETE FROM "user_projects" WHERE "user_projects"."id" = ?[0m  [["id", 124]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mProject Destroy (0.9ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 93]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (69.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+Completed 204 No Content in 109ms (ActiveRecord: 75.2ms | Allocations: 3516)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:24:04 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 0.4ms | Allocations: 1574)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 23:24:11 +0300
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 221)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 23:24:12 +0300
+Processing by SessionsController#destroy as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 389)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-09 23:24:49 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"rupertho_jr", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 201 Created in 450ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 908)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:24:50 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 0.4ms | Allocations: 1567)
+
+
+Started POST "/projects" for 127.0.0.1 at 2023-07-09 23:25:15 +0300
+Processing by ProjectsController#create as */*
+  Parameters: {"name"=>"Phoebe", "description"=>"Girl", "thumbnail"=>"7", "red"=>173, "green"=>37, "blue"=>37}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (1.8ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "thumbnail", "red", "green", "blue", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Phoebe"], ["description", "Girl"], ["thumbnail", "7"], ["red", 173], ["green", 37], ["blue", 37], ["created_at", "2023-07-09 20:25:15.430205"], ["updated_at", "2023-07-09 20:25:15.430205"]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (60.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 94]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "94"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 94]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (28.14ms)
+Completed 201 Created in 139ms (Views: 28.4ms | ActiveRecord: 62.7ms | Allocations: 5203)
+
+
+Started POST "/user_projects" for 127.0.0.1 at 2023-07-09 23:25:15 +0300
+Processing by UserProjectsController#create as */*
+  Parameters: {"project_id"=>94, "username"=>"rupertho_jr"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mUserProject Create (3.6ms)[0m  [1m[32mINSERT INTO "user_projects" ("user_id", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 60], ["project_id", 94], ["created_at", "2023-07-09 20:25:15.619378"], ["updated_at", "2023-07-09 20:25:15.619378"]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (45.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered UserProjectSerializer with ActiveModelSerializers::Adapter::Attributes (3.19ms)
+Completed 201 Created in 87ms (Views: 4.2ms | ActiveRecord: 49.2ms | Allocations: 3593)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:25:16 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 94]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "94"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 94]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.29ms)
+Completed 200 OK in 39ms (Views: 18.7ms | ActiveRecord: 1.4ms | Allocations: 4963)
+
+
+Started GET "/7" for 127.0.0.1 at 2023-07-09 23:25:17 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/7"):
+  
+Started GET "/projects/94" for 127.0.0.1 at 2023-07-09 23:25:23 +0300
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"94"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 94]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "94"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 94]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (13.55ms)
+Completed 200 OK in 21ms (Views: 13.9ms | ActiveRecord: 0.8ms | Allocations: 3924)
+
+
+Started DELETE "/projects/94" for 127.0.0.1 at 2023-07-09 23:25:35 +0300
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"94"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 94]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mUserProject Destroy (1.0ms)[0m  [1m[31mDELETE FROM "user_projects" WHERE "user_projects"."id" = ?[0m  [["id", 125]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 94]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (95.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+Completed 204 No Content in 116ms (ActiveRecord: 97.3ms | Allocations: 3305)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-09 23:25:35 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.78ms)
+Completed 200 OK in 11ms (Views: 7.0ms | ActiveRecord: 0.4ms | Allocations: 1581)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 23:25:37 +0300
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 212)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-09 23:25:38 +0300
+Processing by SessionsController#destroy as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 382)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-10 11:39:23 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"rupertho_jr", "password"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 201 Created in 446ms (Views: 0.9ms | ActiveRecord: 1.3ms | Allocations: 1416)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-10 11:39:24 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 11ms (Views: 4.8ms | ActiveRecord: 0.8ms | Allocations: 1645)
+
+
+Started POST "/projects" for 127.0.0.1 at 2023-07-10 11:40:29 +0300
+Processing by ProjectsController#create as */*
+  Parameters: {"name"=>"Nathaniel Rubil", "description"=>"Good", "thumbnail"=>"6", "red"=>24, "green"=>171, "blue"=>201}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (0.7ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "thumbnail", "red", "green", "blue", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Nathaniel Rubil"], ["description", "Good"], ["thumbnail", "6"], ["red", 24], ["green", 171], ["blue", 201], ["created_at", "2023-07-10 08:40:29.247093"], ["updated_at", "2023-07-10 08:40:29.247093"]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (93.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "95"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mUserProject Load (0.3ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (15.11ms)
+Completed 201 Created in 122ms (Views: 15.3ms | ActiveRecord: 95.7ms | Allocations: 5215)
+
+
+Started POST "/user_projects" for 127.0.0.1 at 2023-07-10 11:40:29 +0300
+Processing by UserProjectsController#create as */*
+  Parameters: {"project_id"=>95, "username"=>"rupertho_jr"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 95], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mUserProject Create (0.5ms)[0m  [1m[32mINSERT INTO "user_projects" ("user_id", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 60], ["project_id", 95], ["created_at", "2023-07-10 08:40:29.412516"], ["updated_at", "2023-07-10 08:40:29.412516"]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (50.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered UserProjectSerializer with ActiveModelSerializers::Adapter::Attributes (0.96ms)
+Completed 201 Created in 75ms (Views: 2.0ms | ActiveRecord: 52.1ms | Allocations: 3626)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-10 11:40:30 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "95"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (30.31ms)
+Completed 200 OK in 50ms (Views: 40.3ms | ActiveRecord: 1.0ms | Allocations: 4953)
+
+
+Started GET "/6" for 127.0.0.1 at 2023-07-10 11:40:30 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/6"):
+  
+Started GET "/projects/95" for 127.0.0.1 at 2023-07-10 11:40:32 +0300
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"95"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 95], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "95"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (12.7ms)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 0.8ms | Allocations: 3927)
+
+
+Started PATCH "/projects/95" for 127.0.0.1 at 2023-07-10 11:41:10 +0300
+Processing by ProjectsController#update as JSON
+  Parameters: {"red"=>201, "green"=>34, "blue"=>34, "id"=>"95"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 95], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[31mUnpermitted parameter: :id[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:21:in `update'
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "red" = ?, "green" = ?, "blue" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["red", 201], ["green", 34], ["blue", 34], ["updated_at", "2023-07-10 08:41:10.051830"], ["id", 95]]
+  ↳ app/controllers/projects_controller.rb:21:in `update'
+  [1m[36mTRANSACTION (47.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:21:in `update'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers]   [1m[36mImage Load (1.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "95"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (15.4ms)
+Completed 200 OK in 86ms (Views: 14.8ms | ActiveRecord: 50.0ms | Allocations: 6025)
+
+
+Started GET "/projects/95" for 127.0.0.1 at 2023-07-10 11:41:10 +0300
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"95"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 95], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "95"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (15.86ms)
+Completed 200 OK in 22ms (Views: 16.2ms | ActiveRecord: 0.8ms | Allocations: 3918)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-10 11:41:17 +0300
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 204)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-10 11:41:19 +0300
+Processing by SessionsController#destroy as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 390)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-07-10 11:44:22 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"rupertho_jr", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 201 Created in 664ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 901)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-10 11:44:22 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "95"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (57.38ms)
+Completed 200 OK in 87ms (Views: 69.1ms | ActiveRecord: 0.9ms | Allocations: 4959)
+
+
+Started GET "/6" for 127.0.0.1 at 2023-07-10 11:44:23 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/6"):
+  
+Started GET "/projects/95" for 127.0.0.1 at 2023-07-10 11:44:24 +0300
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"95"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 95], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "95"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (22.88ms)
+Completed 200 OK in 28ms (Views: 23.6ms | ActiveRecord: 0.8ms | Allocations: 3919)
+
+
+Started DELETE "/projects/95" for 127.0.0.1 at 2023-07-10 11:44:27 +0300
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"95"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 95], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 95]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mUserProject Destroy (1.2ms)[0m  [1m[31mDELETE FROM "user_projects" WHERE "user_projects"."id" = ?[0m  [["id", 126]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mProject Destroy (0.6ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 95]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (77.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+Completed 204 No Content in 107ms (ActiveRecord: 79.3ms | Allocations: 3297)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-10 11:44:27 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.1ms)
+Completed 200 OK in 26ms (Views: 12.1ms | ActiveRecord: 0.4ms | Allocations: 1574)
+
+
+Started POST "/projects" for 127.0.0.1 at 2023-07-10 11:44:44 +0300
+Processing by ProjectsController#create as */*
+  Parameters: {"name"=>"ruperths blog", "description"=>"Blog", "thumbnail"=>"7", "red"=>178, "green"=>173, "blue"=>16}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mProject Create (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "thumbnail", "red", "green", "blue", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "ruperths blog"], ["description", "Blog"], ["thumbnail", "7"], ["red", 178], ["green", 173], ["blue", 16], ["created_at", "2023-07-10 08:44:44.928880"], ["updated_at", "2023-07-10 08:44:44.928880"]]
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (324.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:10:in `create'
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "96"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers]   [1m[36mUserProject Load (0.6ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (63.3ms)
+Completed 201 Created in 446ms (Views: 64.1ms | ActiveRecord: 326.9ms | Allocations: 5142)
+
+
+Started POST "/user_projects" for 127.0.0.1 at 2023-07-10 11:44:45 +0300
+Processing by UserProjectsController#create as */*
+  Parameters: {"project_id"=>96, "username"=>"rupertho_jr"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rupertho_jr"], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mUserProject Create (0.4ms)[0m  [1m[32mINSERT INTO "user_projects" ("user_id", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 60], ["project_id", 96], ["created_at", "2023-07-10 08:44:45.453332"], ["updated_at", "2023-07-10 08:44:45.453332"]]
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (43.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_projects_controller.rb:11:in `create'
+[active_model_serializers] Rendered UserProjectSerializer with ActiveModelSerializers::Adapter::Attributes (1.42ms)
+Completed 201 Created in 58ms (Views: 2.2ms | ActiveRecord: 44.4ms | Allocations: 3586)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-10 11:44:46 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (4.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "96"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (43.33ms)
+Completed 200 OK in 70ms (Views: 58.3ms | ActiveRecord: 5.2ms | Allocations: 4949)
+
+
+Started GET "/7" for 127.0.0.1 at 2023-07-10 11:44:46 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/7"):
+  
+Started GET "/projects/96" for 127.0.0.1 at 2023-07-10 11:44:51 +0300
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"96"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "96"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (14.74ms)
+Completed 200 OK in 20ms (Views: 15.1ms | ActiveRecord: 0.8ms | Allocations: 3930)
+
+
+Started PATCH "/projects/96" for 127.0.0.1 at 2023-07-10 11:44:55 +0300
+Processing by ProjectsController#update as JSON
+  Parameters: {"red"=>"", "green"=>"", "blue"=>"", "id"=>"96"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[31mUnpermitted parameter: :id[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:21:in `update'
+  [1m[36mProject Update (4.6ms)[0m  [1m[33mUPDATE "projects" SET "red" = ?, "green" = ?, "blue" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["red", nil], ["green", nil], ["blue", nil], ["updated_at", "2023-07-10 08:44:55.129104"], ["id", 96]]
+  ↳ app/controllers/projects_controller.rb:21:in `update'
+  [1m[36mTRANSACTION (42.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:21:in `update'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "96"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (13.67ms)
+Completed 200 OK in 100ms (Views: 14.8ms | ActiveRecord: 48.5ms | Allocations: 5823)
+
+
+Started GET "/projects/96" for 127.0.0.1 at 2023-07-10 11:44:55 +0300
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"96"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "96"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (90.02ms)
+Completed 200 OK in 96ms (Views: 90.2ms | ActiveRecord: 0.8ms | Allocations: 3920)
+
+
+Started PATCH "/projects/96" for 127.0.0.1 at 2023-07-10 11:44:58 +0300
+Processing by ProjectsController#update as JSON
+  Parameters: {"red"=>"", "green"=>"", "blue"=>"", "id"=>"96"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[31mUnpermitted parameter: :id[0m
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers]   [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "96"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers]   [1m[36mUserProject Load (0.4ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (28.29ms)
+Completed 200 OK in 40ms (Views: 28.5ms | ActiveRecord: 1.8ms | Allocations: 4294)
+
+
+Started GET "/projects/96" for 127.0.0.1 at 2023-07-10 11:44:58 +0300
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"96"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "96"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mUserProject Load (0.1ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (63.49ms)
+Completed 200 OK in 106ms (Views: 65.2ms | ActiveRecord: 0.7ms | Allocations: 3916)
+
+
+Started PATCH "/projects/96" for 127.0.0.1 at 2023-07-10 11:45:08 +0300
+Processing by ProjectsController#update as JSON
+  Parameters: {"red"=>212, "green"=>59, "blue"=>8, "id"=>"96"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[31mUnpermitted parameter: :id[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:21:in `update'
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "red" = ?, "green" = ?, "blue" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["red", 212], ["green", 59], ["blue", 8], ["updated_at", "2023-07-10 08:45:08.031555"], ["id", 96]]
+  ↳ app/controllers/projects_controller.rb:21:in `update'
+  [1m[36mTRANSACTION (45.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:21:in `update'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers]   [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "96"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:22:in `update'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (20.86ms)
+Completed 200 OK in 79ms (Views: 21.4ms | ActiveRecord: 47.4ms | Allocations: 5821)
+
+
+Started GET "/projects/96" for 127.0.0.1 at 2023-07-10 11:45:08 +0300
+Processing by ProjectsController#show as */*
+  Parameters: {"id"=>"96"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_projects" ON "users"."id" = "user_projects"."user_id" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."project_id" = ?[0m  [["project_id", "96"]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers]   [1m[36mUserProject Load (0.2ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+[active_model_serializers]   ↳ app/controllers/projects_controller.rb:16:in `show'
+[active_model_serializers] Rendered ProjectSerializer with ActiveModelSerializers::Adapter::Attributes (61.09ms)
+Completed 200 OK in 73ms (Views: 64.7ms | ActiveRecord: 0.7ms | Allocations: 3930)
+
+
+Started POST "/images" for 127.0.0.1 at 2023-07-10 11:45:17 +0300
+Processing by ImagesController#create as */*
+  Parameters: {"url"=>"https://www.linkedin.com/in/ruperth-nyagesoa/", "description"=>"t", "project_id"=>"96"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/images_controller.rb:4:in `create'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/images_controller.rb:4:in `create'
+  [1m[36mImage Create (0.4ms)[0m  [1m[32mINSERT INTO "images" ("url", "description", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["url", "https://www.linkedin.com/in/ruperth-nyagesoa/"], ["description", "t"], ["project_id", "96"], ["created_at", "2023-07-10 08:45:17.873119"], ["updated_at", "2023-07-10 08:45:17.873119"]]
+  ↳ app/controllers/images_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (100.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/images_controller.rb:4:in `create'
+[active_model_serializers] Rendered ImageSerializer with ActiveModelSerializers::Adapter::Attributes (0.85ms)
+Completed 201 Created in 127ms (Views: 3.0ms | ActiveRecord: 102.0ms | Allocations: 6608)
+
+
+Started DELETE "/projects/96" for 127.0.0.1 at 2023-07-10 11:45:25 +0300
+Processing by ProjectsController#destroy as */*
+  Parameters: {"id"=>"96"}
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:44:in `find_project'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mUserProject Load (0.3ms)[0m  [1m[34mSELECT "user_projects".* FROM "user_projects" WHERE "user_projects"."project_id" = ?[0m  [["project_id", 96]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mUserProject Destroy (0.8ms)[0m  [1m[31mDELETE FROM "user_projects" WHERE "user_projects"."id" = ?[0m  [["id", 127]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 96]]
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (40.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:33:in `destroy'
+Completed 204 No Content in 73ms (ActiveRecord: 42.4ms | Allocations: 3506)
+
+
+Started GET "/projects" for 127.0.0.1 at 2023-07-10 11:45:25 +0300
+Processing by ProjectsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" INNER JOIN "user_projects" ON "projects"."id" = "user_projects"."project_id" WHERE "user_projects"."user_id" = ?[0m  [["user_id", 60]]
+  ↳ app/controllers/projects_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 32ms (Views: 21.0ms | ActiveRecord: 0.4ms | Allocations: 1601)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-10 11:45:26 +0300
+Processing by SessionsController#destroy as */*
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 218)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-07-10 11:45:27 +0300
+Processing by SessionsController#destroy as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.5ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 401)
+
+

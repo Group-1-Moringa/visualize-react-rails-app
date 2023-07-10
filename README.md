@@ -1,5 +1,4 @@
 # visualize-rails-react-app
-# README
 
   This is a collaboration project built by Ruperth, Phoebe, Nicole, and Mark.
 
@@ -10,7 +9,7 @@ put to the page in a very visible manner. It allows creatives, artists, and grou
   
     To run this application, a `bundle install` will need to be run to install the Ruby gems associated with the web application. To install the packages for the 
 React frontend you will need to navigate into the client directory.  Once in the client directory,
-you will need to run `npm install` to download and install the dependencies for the webpage.
+you will need to run `npm install --prefix client` to download and install the dependencies for the webpage.
   
     To run the front end dev server you need to run npm start --prefix client and it should open the React Development 
 server.  To run the built in backend server you need to run `rails s` command will work to start the backend
